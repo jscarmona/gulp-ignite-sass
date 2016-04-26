@@ -43,7 +43,7 @@ export default {
    * @type {Object}
    */
   help: {
-    style: 'Compress and minify the output (expanded|nested|compact|compressed). Default: expanded',
+    style: 'Style in which to output css (expanded|nested|compact|compressed). Default: expanded',
     sourcemap: 'Enable or Disable sourcemaps (true|false). Default: false',
     watch: 'Watch files for changes and trigger browsersync',
   },
