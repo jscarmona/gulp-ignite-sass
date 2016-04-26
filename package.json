@@ -1,7 +1,7 @@
 {
   "name": "gulp-ignite-sass",
   "description": "A gulp ignite task to compile sass",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register",
