@@ -1,5 +1,10 @@
 'use strict';
 
+import autoprefixer from 'gulp-autoprefixer';
+import gulp from 'gulp';
+import gulpIf from 'gulp-if';
+import sass from 'gulp-ruby-sass';
+import sourcemaps from 'gulp-sourcemaps';
 import yargs from 'yargs';
 
 export default {
@@ -7,26 +12,40 @@ export default {
    * Task name
    * @type {String}
    */
-  name: 'name',
+  name: 'sass',
 
   /**
    * Task description
    * @type {String}
    */
-  description: 'Task description',
+  description: 'Compile SASS files',
 
   /**
    * Task default configuration
    * @type {Object}
    */
-  config: {},
+  config: {
+    src: './client/app/app.scss',
+    dest: './public/css',
+    options: {
+      sourcemap: false,
+      style: 'expanded',
+    },
+    autoprefixer: {
+      browsers: ['last 2 versions']
+    },
+    watch: false,
+    watchFiles: [],
+  },
 
   /**
    * Task help options
    * @type {Object}
    */
   help: {
-    sample: 'Description of option (true|false). Default: false',
+    style: 'Compress and minify the output (expanded|nested|compact|compressed). Default: expanded',
+    sourcemap: 'Enable or Disable sourcemaps (true|false). Default: false',
+    watch: 'Watch files for changes and trigger browsersync',
   },
 
   /**
@@ -36,12 +55,20 @@ export default {
    * @return {Object}
    */
   fn(config, end, error) {
-    if (!config) {
-      return error();
+    config.options.style = yargs.argv.style || config.options.style;
+    config.options.sourcemap = yargs.argv.sourcemap || config.options.sourcemap;
+    config.watch = yargs.argv.watch || config.watch;
+
+    if (config.watch) {
+      gulp.watch(config.watchFiles, ['sass']);
     }
 
-    config.sample = yargs.argv.sample || config.sample;
-
-    end();
+    sass(config.src, config.options)
+        .on('error', error)
+      .pipe(gulpIf(config.sourcemap, sourcemaps.init({ loadMaps: true })))
+      .pipe(autoprefixer(config.autoprefixer))
+      .pipe(gulpIf(config.sourcemap, sourcemaps.write('./', { includeContent: false, sourceRoot: 'source' })))
+      .pipe(gulp.dest(config.dest))
+        .on('end', end);
   }
 };

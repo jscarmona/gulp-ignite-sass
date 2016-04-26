@@ -1,1 +1,1 @@
-# gulp-ignite-task-boilerplate
+# gulp-ignite-sass

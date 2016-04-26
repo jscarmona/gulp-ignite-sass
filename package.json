@@ -1,6 +1,6 @@
 {
-  "name": "gulp-ignite-task-boilerplate",
-  "description": "A boilerplate for building gulp ignite tasks.",
+  "name": "gulp-ignite-sass",
+  "description": "A gulp ignite task to compile sass",
   "version": "0.0.0-semantically-released",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jscarmona/gulp-ignite-task-boilerplate.git"
+    "url": "git+https://github.com/jscarmona/gulp-ignite-sass.git"
   },
   "keywords": [
     "gulp",
@@ -22,11 +22,15 @@
   "author": "Javier Carmona",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jscarmona/gulp-ignite-task-boilerplate/issues"
+    "url": "https://github.com/jscarmona/gulp-ignite-sass/issues"
   },
-  "homepage": "https://github.com/jscarmona/gulp-ignite-task-boilerplate#readme",
+  "homepage": "https://github.com/jscarmona/gulp-ignite-sass#readme",
   "dependencies": {
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-if": "2.0.0",
+    "gulp-ruby-sass": "2.0.6",
+    "gulp-sourcemaps": "2.0.0-alpha",
     "yargs": "^3.32.0"
   },
   "devDependencies": {
