@@ -65,9 +65,9 @@ export default {
 
     sass(config.src, config.options)
         .on('error', error)
-      .pipe(gulpIf(config.sourcemap, sourcemaps.init({ loadMaps: true })))
+      .pipe(gulpIf(config.options.sourcemap, sourcemaps.init({ loadMaps: true })))
       .pipe(autoprefixer(config.autoprefixer))
-      .pipe(gulpIf(config.sourcemap, sourcemaps.write('./', { includeContent: false, sourceRoot: 'source' })))
+      .pipe(gulpIf(config.options.sourcemap, sourcemaps.write('./', { includeContent: false, sourceRoot: 'source' })))
       .pipe(gulp.dest(config.dest))
         .on('end', end);
   }
