@@ -12,7 +12,7 @@ describe('Task', () => {
       expect(task.name).to.be.a('string');
     });
 
-    it('should be `browserify`', () => {
+    it('should be `sass`', () => {
       expect(task.name).to.equal('sass');
     });
   });
@@ -56,15 +56,15 @@ describe('Task', () => {
     });
 
     it('should contain a `style` property', () => {
-      expect(task.help.style).to.be.a('string');
+      expect(task.help['style, -s']).to.be.a('string');
     });
 
     it('should contain a `sourcemap` property', () => {
-      expect(task.help.sourcemap).to.be.a('string');
+      expect(task.help['sourcemap, -m']).to.be.a('string');
     });
 
     it('should contain a `watch` property', () => {
-      expect(task.help.watch).to.be.a('string');
+      expect(task.help['watch, -w']).to.be.a('string');
     });
   });
 

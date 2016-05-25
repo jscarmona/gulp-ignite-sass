@@ -25,12 +25,13 @@
   },
   "homepage": "https://github.com/jscarmona/gulp-ignite-sass#readme",
   "dependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
     "gulp-if": "2.0.0",
-    "gulp-ruby-sass": "2.0.6",
+    "gulp-ignite": "1.1.2",
+    "gulp-sass": "2.3.1",
     "gulp-sourcemaps": "2.0.0-alpha",
-    "yargs": "^3.32.0"
+    "yargs": "3.32.0"
   },
   "devDependencies": {
     "babel-cli": "6.6.4",
