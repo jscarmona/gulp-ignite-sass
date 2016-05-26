@@ -60,10 +60,11 @@ export default {
 
     if (yargs.argv.watch || yargs.argv.w || config.watch) {
       gulp.watch(config.watchFiles, (file) => {
-        compile().on('end', () => {
-          IGNITE_UTILS.log(`Sass complete => ${path.basename(file.path)}`);
-          IGNITE_UTILS.notify('Sass Complete');
-        });
+        compile()
+          .on('end', () => {
+            IGNITE_UTILS.log(`Sass complete => ${path.basename(file.path)}`);
+            IGNITE_UTILS.notify('Sass Complete');
+          });
       });
     }
 
