@@ -40,8 +40,8 @@ $ gulp sass --watch
 ```
 
 ##### arguments
-- `--style, -s` - Style in which to output css (expanded|nested|compact|compressed).
-- `--sourcemap, -m` - Enable or Disable sourcemaps (true|false).
+- `--min, -m` - Minify output css.
+- `--sourcemap, -s` - Enable or Disable sourcemaps (true|false).
 - `--watch, -w` - Watch files for changes and trigger sass.
 
 ##### options
