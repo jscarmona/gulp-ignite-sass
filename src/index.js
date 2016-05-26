@@ -43,8 +43,8 @@ export default {
    * @type {Object}
    */
   help: {
-    'style, -s': 'Style in which to output css (expanded|nested|compact|compressed). Default: expanded',
-    'sourcemap, -m': 'Enable or Disable sourcemaps (true|false). Default: false',
+    'min, -m': 'Minify the output',
+    'sourcemap, -s': 'Enable or Disable sourcemaps',
     'watch, -w': 'Watch files for changes and trigger browsersync',
   },
 
@@ -55,8 +55,8 @@ export default {
    * @return {Object}
    */
   fn(config, end, error) {
-    const style = yargs.argv.style || yargs.argv.s || config.options.style;
-    const sourcemap = yargs.argv.sourcemap || yargs.argv.m || config.options.sourcemap;
+    const style = (yargs.argv.min || yargs.argv.m) ? 'compressed' : config.options.style;
+    const sourcemap = yargs.argv.sourcemap || yargs.argv.s || config.options.sourcemap;
 
     if (yargs.argv.watch || yargs.argv.w || config.watch) {
       gulp.watch(config.watchFiles, (file) => {

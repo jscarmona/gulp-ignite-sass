@@ -55,12 +55,12 @@ describe('Task', () => {
       expect(task.help).to.be.a('object');
     });
 
-    it('should contain a `style` property', () => {
-      expect(task.help['style, -s']).to.be.a('string');
+    it('should contain a `min` property', () => {
+      expect(task.help['min, -m']).to.be.a('string');
     });
 
     it('should contain a `sourcemap` property', () => {
-      expect(task.help['sourcemap, -m']).to.be.a('string');
+      expect(task.help['sourcemap, -s']).to.be.a('string');
     });
 
     it('should contain a `watch` property', () => {
