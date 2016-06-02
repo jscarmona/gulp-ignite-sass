@@ -34,6 +34,7 @@ export default {
     autoprefixer: {
       browsers: ['last 2 versions'],
     },
+    exitOnFail: true,
     watch: false,
     watchFiles: [],
   },
@@ -73,7 +74,7 @@ export default {
     function compile() {
       return gulp.src(config.src)
         .pipe(gulpIf(sourcemap, sourcemaps.init({ loadMaps: true })))
-        .pipe(sass({ outputStyle: style }).on('error', error))
+        .pipe(sass({ outputStyle: style }).on('error', (e) => error(e.message, config.exitOnFail)))
         .pipe(autoprefixer(config.autoprefixer))
         .pipe(gulpIf(sourcemap, sourcemaps.write('./', {
           includeContent: false,

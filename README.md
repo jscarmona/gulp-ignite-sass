@@ -52,6 +52,7 @@ $ gulp sass --watch
   - `style` - Style in which to output css (expanded|nested|compact|compressed). (**Default:** `'expanded'`)
 - `autoprefixer` - Options to pass through to autoprefixer. See [autoprefixer](https://github.com/postcss/autoprefixer#options) for available options
   - `browsers` - Browser versions to support. (**Default:** `['last 2 versions']`)
+- `exitOnFail` - Whether or not to exit on fail. (**Default:** `true`)
 - `watch` - Whether or not to watch for file changes. (**Default:** `false`)
 - `watchFiles` - Files to watch for changes. (**Default:** `[]`)
 - `deps` - Any gulp tasks that task would be dependent of. (**Default:** `[]`)

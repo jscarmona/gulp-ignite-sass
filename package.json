@@ -28,7 +28,7 @@
     "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
     "gulp-if": "2.0.0",
-    "gulp-ignite": "1.1.2",
+    "gulp-ignite": "1.3.0",
     "gulp-sass": "2.3.1",
     "gulp-sourcemaps": "2.0.0-alpha",
     "yargs": "3.32.0"
