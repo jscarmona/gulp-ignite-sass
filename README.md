@@ -15,20 +15,11 @@ $ npm install --save-dev gulp-ignite gulp-ignite-sass
 ## example
 
 ```js
-'use strict';
-
-import ignite from 'gulp-ignite';
+import { task, watch } from 'gulp-ignite';
 import sass from 'gulp-sass';
 
-const tasks = [sass];
-const options = {
-  sass: {
-    watchFiles: ['./client/app/**/*.js'],
-  },
-};
-
-ignite.start(tasks, options);
-
+task('styles', sass, { src: './src/app.scss' });
+watch('styles:watch', './src/**/*.scss', ['styles']);
 ```
 
 ## usage
@@ -36,13 +27,8 @@ ignite.start(tasks, options);
 Run sass compiling on src files.
 
 ```bash
-$ gulp sass --watch
+$ gulp sass
 ```
-
-##### arguments
-- `--min, -m` - Minify output css.
-- `--sourcemap, -s` - Enable or Disable sourcemaps (true|false).
-- `--watch, -w` - Watch files for changes and trigger sass.
 
 ##### options
 - `src` - The source files that should be sassified. (**Default:** `['./client/app/app.scss']`)
@@ -53,8 +39,6 @@ $ gulp sass --watch
 - `autoprefixer` - Options to pass through to autoprefixer. See [autoprefixer](https://github.com/postcss/autoprefixer#options) for available options
   - `browsers` - Browser versions to support. (**Default:** `['last 2 versions']`)
 - `exitOnFail` - Whether or not to exit on fail. (**Default:** `true`)
-- `watch` - Whether or not to watch for file changes. (**Default:** `false`)
-- `watchFiles` - Files to watch for changes. (**Default:** `[]`)
 - `deps` - Any gulp tasks that task would be dependent of. (**Default:** `[]`)
 
 ## license
