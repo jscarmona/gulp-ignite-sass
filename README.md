@@ -27,7 +27,7 @@ watch('styles:watch', './src/**/*.scss', ['styles']);
 Run sass compiling on src files.
 
 ```bash
-$ gulp sass
+$ gulp styles
 ```
 
 ##### options
