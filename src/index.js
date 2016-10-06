@@ -25,10 +25,9 @@ export default {
   config: {
     src: './client/app/app.scss',
     dest: './public/css',
-    options: {
-      sourcemap: false,
-      style: 'expanded',
-    },
+    sourcemap: false,
+    style: 'expanded',
+    options: {},
     autoprefixer: {
       browsers: ['last 2 versions'],
     },
@@ -48,11 +47,13 @@ export default {
    * @return {Object}
    */
   fn(config, end, error) {
+    const sassOptions = Object.assign({}, { outputStyle: config.style }, config.options);
+
     return gulp.src(config.src)
-      .pipe(gulpIf(config.options.sourcemap, sourcemaps.init({ loadMaps: true })))
-      .pipe(sass({ outputStyle: config.options.style }).on('error', (e) => error(e.message, config.exitOnFail)))
+      .pipe(gulpIf(config.sourcemap, sourcemaps.init({ loadMaps: true })))
+      .pipe(sass(sassOptions).on('error', (e) => error(e.message, config.exitOnFail)))
       .pipe(autoprefixer(config.autoprefixer))
-      .pipe(gulpIf(config.options.sourcemap, sourcemaps.write('./', {
+      .pipe(gulpIf(config.sourcemap, sourcemaps.write('./', {
         includeContent: false,
         sourceRoot: 'source',
       })))
