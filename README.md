@@ -33,9 +33,9 @@ $ gulp styles
 ##### options
 - `src` - The source files that should be sassified. (**Default:** `['./client/app/app.scss']`)
 - `dest` - The destination of the compiled css. (**Default:** `'./public/css'`)
-- `options`
-  - `sourcemap` - Enable or Disable sourcemaps. (**Default:** `false`)
-  - `style` - Style in which to output css (expanded|nested|compact|compressed). (**Default:** `'expanded'`)
+- `sourcemap` - Enable or Disable sourcemaps. (**Default:** `false`)
+- `style` - Style in which to output css (expanded|nested|compact|compressed). (**Default:** `'expanded'`)
+- `options` - Options to pass through to node-sass. See [node-sass](https://github.com/sass/node-sass#options) for available options
 - `autoprefixer` - Options to pass through to autoprefixer. See [autoprefixer](https://github.com/postcss/autoprefixer#options) for available options
   - `browsers` - Browser versions to support. (**Default:** `['last 2 versions']`)
 - `exitOnFail` - Whether or not to exit on fail. (**Default:** `true`)
